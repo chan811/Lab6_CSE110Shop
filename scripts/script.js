@@ -9,13 +9,14 @@ window.addEventListener('DOMContentLoaded', () => {
   
   for (item in JSON.parse(localStorage.getItem('ShopItems'))) {
     let product = document.createElement('product-item');
-    product.setAttribute('src', item['image']);
-    product.setAttribute('alt', item['title']);
-    product.setAttribute('title', item['title']);
-    product.setAttribute('price', item['price']);
+    product.shadowRoot.setAttribute('img', item['image']);
+    product.shadowRoot.setAttribute('alt', item['title']);
+    product.shadowRoot.setAttribute('title', item['title']);
+    product.shadowRoot.setAttribute('price', item['price']);
     console.dir(product);
     console.log(product);
     productList = document.getElementById('product-list');
     productList.appendChild(product);
   }
 });
+
