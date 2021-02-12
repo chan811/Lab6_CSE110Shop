@@ -13,6 +13,8 @@ window.addEventListener('DOMContentLoaded', () => {
     product.setAttribute('alt', item['title']);
     product.setAttribute('title', item['title']);
     product.setAttribute('price', item['price']);
+    console.dir(product);
+    console.log(product);
     productList = document.getElementById('product-list');
     productList.appendChild(product);
   }
