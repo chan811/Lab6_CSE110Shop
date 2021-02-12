@@ -5,7 +5,7 @@ class ProductItem extends HTMLElement {
   constructor()
   {
     super();
-    const shadowRoot = this.attachShadow({mode: 'open'});{mode: 'open'};
+    const shadowRoot = this.attachShadow({mode: 'open'});
     shadowRoot.innerHTML = `
     <style>
     .price {
@@ -72,10 +72,10 @@ class ProductItem extends HTMLElement {
       text-overflow: unset;
     }
     </style>
-    <li class="product-item">
-      <img src=${this.getAttribute('src')} alt=${this.getAttribute('alt')} width=200>
-      <p class="title">${this.getAttribute('title')}</p>
-      <p class="price">${this.getAttribute('price')}</p>
+    <li class="product">
+      <img src="" alt="" width=200>
+      <p class="title"></p>
+      <p class="price"></p>
       <button onclick="alert('Added to Cart!')">Add to Cart</button>
     </li>
     `; 
