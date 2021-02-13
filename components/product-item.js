@@ -81,6 +81,8 @@ class ProductItem extends HTMLElement {
       </li>
       `; 
     
+    
+    this.itemid = 0;
 
     this.cartBtn = this.shadowRoot.children[1].children[3];
     this.cartCount = document.getElementById('cart-count');
@@ -95,6 +97,14 @@ class ProductItem extends HTMLElement {
 
   connectedCallback() {
     
+    let productArray = JSON.parse(localStorage.getItem('listProducts'));
+    if (productArray[this.itemid] != null)
+    {
+      this.cartCount.innerHTML = String(Number(this.cartCount.innerHTML)+1);
+      this.cartBtn.innerHTML = "Remove from Cart";
+      this.inCart = true;
+    }
+    
   }
   
   updateCart() {
@@ -104,12 +114,19 @@ class ProductItem extends HTMLElement {
       this.cartBtn.innerHTML = "Remove from Cart";
       this.inCart = true;
       
+      let productArray = JSON.parse(localStorage.getItem('listProducts'));
+      productArray[this.itemid] = this;
+      localStorage.setItem('listProducts', JSON.stringify(productArray));
     }
     else {
       alert('Removed from Cart!');
       this.cartCount.innerHTML = String(Number(this.cartCount.innerHTML)-1);
       this.cartBtn.innerHTML = "Add to Cart";
       this.inCart = false;
+      
+      let productArray = JSON.parse(localStorage.getItem('listProducts'));
+      productArray[this.itemid] = null;
+      localStorage.setItem('listProducts', JSON.stringify(productArray));
     }
     
   }
