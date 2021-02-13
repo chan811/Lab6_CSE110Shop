@@ -16,9 +16,11 @@ window.addEventListener('DOMContentLoaded', () => {
     product.shadowRoot.children[1].children[0].alt = items[key]['title'];
     product.shadowRoot.children[1].children[1].innerHTML = items[key]['title'];
     product.shadowRoot.children[1].children[2].innerHTML = '$' + items[key]['price'];
-        
+
     productList = document.getElementById('product-list');
     productList.appendChild(product);
+    
   }
 });
+
 
